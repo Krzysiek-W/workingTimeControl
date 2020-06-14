@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<form th:action="@{/task/timeToDeadline}" th:object="${task}" method="get">
+    <h1>Time to Deadline</h1>
+
+    <td th:text="${timeLeft}"></td>
+
+</form>
+<form action="/project/print">
+    <input type="submit" value="back to projects"/>
+</form>
+</body>
+</html>

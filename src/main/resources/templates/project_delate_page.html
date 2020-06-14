@@ -1,0 +1,40 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Delete Project</title>
+</head>
+<body>
+<h1>Delete Project</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            <form th:action="@{/project/delete}" th:object="${selectedProject}" method="post">
+                <select th:field="*{id}">
+                    <option th:each="project : ${projects}"
+                            th:value="${project.projectID}"
+                            th:text="${project.projectName}">Wireframe
+                    </option>
+                </select>
+                <p><input type="submit" value="Delete"/> <input type="reset" value="Reset"/></p>
+            </form>
+            <form action="/mainPage">
+                <input type="submit" value="Return to main menu"/>
+            </form>
+            <form action="/project/print">
+                <input type="submit" value="Return to projects list"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

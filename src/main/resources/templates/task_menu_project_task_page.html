@@ -1,0 +1,57 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Task list</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Task list</h2>
+            <table class="table table-striped table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>DESCRIPTION TASK</th>
+                    <th>TIME FOR TASK</th>
+                    <th>PROJECT NAME</th>
+                    <th>UPDATE TASK</th>
+                    <th>USER</th>
+                    <th>STATUS</th>
+                    <th>CHANGE STATUS</th>
+                    <th>TIME TO DEADLINE</th>
+                </tr>
+                <tr th:each="quest: ${tasks}">
+                    <th th:text="${quest.taskID}"></th>
+                    <th th:text="${quest.taskName}"></th>
+                    <th th:text="${quest.descriptionTask}"></th>
+                    <th th:text="${quest.timeForTask}"></th>
+                    <th th:text="${quest.project.projectName}"></th>
+                    <td>
+                        <a th:href="@{'/task/update/'+ ${quest.taskID}}">UPDATE</a>
+                    </td>
+                    <th th:text="${quest.userName}"></th>
+                    <th th:text="${quest.taskStatus}"></th>
+                    <td>
+                        <a th:href="@{'/task/changeStatus/'+ ${quest.taskID}}">CHANGE STATUS</a>
+                    </td>
+
+                    <td>
+                    <a th:href="@{'/task/timeToDeadline/'+ ${quest.taskID}}">SHOW TIME TO DEALINE</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
